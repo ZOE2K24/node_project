@@ -1,10 +1,17 @@
-//import the express package
+// Import the express package
 const express = require('express');
+require('dotenv').config();
+const PORT = process.env.PORT || 3000; 
 
-//initialize a new express instance equal to the app object
+// Initialize a new express instance
 const app = express();
 
-//Start our server, listening on port 3000
-app.listen(PORT, () =>{
+// Route handler that sends back a response
+app.get('/home', (req, res) => {
+    res.send("Hello, World!");
+});
+
+// Start our server
+app.listen(PORT, () => {
     console.log(`Connected on port ${PORT}`);
 });
